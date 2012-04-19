@@ -12,16 +12,14 @@ import android.widget.EditText;
 public class PersistencyActivity extends Activity {
 
 	private static final String LVL = "lvl";
-	Button btnSave;
-	EditText edtDificultyLvl;
+	Button btnSave = null;
+	EditText edtDificultyLvl = null;
 	SharedPreferences prefs = null;
-	String savedLvl = "";
+	SharedPreferences.Editor editorPreferences = null;
 
 	OnClickListener onClickListener = new OnClickListener() {
-
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			savePreferences();
 		}
 	};
@@ -32,25 +30,28 @@ public class PersistencyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		initSharedPreferences();
 		
 		btnSave = (Button) findViewById(R.id.btnSave);
 		btnSave.setOnClickListener(onClickListener);
+
 		edtDificultyLvl = (EditText) findViewById(R.id.edtDificultyLvl);
 		edtDificultyLvl.setText(readPreferences());
 
 	}
+	
+	private void initSharedPreferences(){
+		prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		editorPreferences = prefs.edit();
+	}
 
 	private String readPreferences() {
 		return prefs.getString(LVL, "");
-
 	}
 
 	private void savePreferences() {
-		SharedPreferences.Editor editorPreferences = prefs.edit();
 		editorPreferences.putString(LVL, edtDificultyLvl.getText().toString());
 		editorPreferences.commit();
-
 	}
 
 }
