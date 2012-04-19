@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferencesScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Categoría 1">
+        <CheckBoxPreference
+            android:name="checkBoxPreference"
+            android:key="checkbox_preference"
+            android:title="Modo avanzado"/>
+
+        <EditTextPreferences
+            android:key="edittext_preference1"
+            android:summary="Texto"
+            android:title="Nombre de usuario"/>
+        <EditTextPreferences
+            android:key="edittext_preference2"
+            android:summary="Texto"
+            android:title="Contraseña"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Categoría 2" >
+        <ListPreference 
+            android:key="list_preference"
+            android:title="Idioma"
+            android:summary="Idioma..."
+            android:entries="@array/language"
+            android:entryValues="@array/language_values"
+            android:dialogTitle="Seleccione un idioma"/>
+    </PreferenceCategory>
+
+</PreferencesScreen>
