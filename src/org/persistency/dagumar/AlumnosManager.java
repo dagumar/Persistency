@@ -11,9 +11,11 @@ public class AlumnosManager {
 	public static final String TABLE = "alumnos";
 	public static final String KEY_SURNAME = "surname";
 	public static final String KEY_MARK = "mark";
+	public static final String KEY_NAME = "name";
 	public static final String DATABASE_CREATE = "" + "CREATE TABLE " + TABLE
-			+ " (" + "	" + KEY_SURNAME + " varchar2(20), " + "	" + KEY_MARK
-			+ " int(2) " + ")";
+			+ " (" + "	" + KEY_SURNAME + " varchar2(20), " 
+			+ "	" + KEY_MARK + " int(2), " 
+			+ " "+ KEY_NAME +  " varchar2(20) )";
 
 	private DatabaseHelper dbHelper = null;
 	private SQLiteDatabase db = null;
